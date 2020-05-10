@@ -1,0 +1,27 @@
+excel:
+  excelname: cases.xlsx
+  actual_col: 8
+  result_col: 7
+  pass: "通过"
+  nopass: "不通过"
+mysql:
+  host: "api.lemonban.com"
+  user: "future"
+  password: "123456"
+  database: "futureloan"
+  sql1: 'SELECT *  FROM member WHERE mobile_phone =%s;'
+  sql2: 'SELECT id FROM member WHERE mobile_phone =%s;'
+logs:
+  logname: xixi
+  logleval1: DEBUG
+  formated: '%(asctime)s-[%(filename)s--->line:%(lineno)d]-%(name)s:%(levelname)s:%(message)s'
+  logleval2: DEBUG
+  logfilename: test.log
+report:
+  reportname: 'report'
+  title: '前程贷项目'
+  description: '前程贷项目的测试描述'
+  tester: xixi
+api:
+  base_url: 'http://api.lemonban.com/futureloan'
+  version: {"X-Lemonban-Media-Type": "lemonban.v2"}
