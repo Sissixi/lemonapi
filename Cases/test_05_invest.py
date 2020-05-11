@@ -74,14 +74,14 @@ class TestInvest(unittest.TestCase):
                 token = actual_value["data"]["token_info"]["token"]
                 # 更新请求头
                 self.do_requests.add_headers({"Authorization": "Bearer " + token})
-            #获取load_id
+            '''第一种方法：获取load_id,从数据库中获取'''
             check_sql=case.check_sql
             if check_sql:
                 check_sql=Parameterization.to_param(check_sql)
                 load_id=self.do_sql.run(check_sql)
                 load_id=load_id['id']
                 setattr(Parameterization,'load_id',load_id)
-            #第二种方法-处理多个sql，定义为json
+            '''第二种方法-处理多个sql，获取load_id,定义为json'''
             #
             # check_sql=json.loads(case.check_sql,encoding='utf8')
             # if "load_id" in check_sql:
@@ -89,7 +89,10 @@ class TestInvest(unittest.TestCase):
             #     load_id = self.do_sql.run(check_sql)
             #     load_id = load_id['id']
             #     setattr(Parameterization, 'load_id', load_id)
-
+            '''第三种方法，获取load_id从实际结果中获取'''
+            # if case.case_id==2:
+            #     load_id=actual_value.get('data').get('id')
+            #     setattr(Parameterization, 'load_id', load_id)
 
 
             # 断言成功执行的代码
